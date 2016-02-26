@@ -3,8 +3,16 @@ h1
 p
   | Find me in app/views/chat_room/index.html.erb
 
-= form_for @message, :url => chat_room_send_message_path, :remote => true do |f|
-    = f.text_field :name
-    = f.text_field :content
+= link_to 'Room一覧', rooms_path
 
-    .action style="text-align: right;" = f.submit '送信する', :class => 'btn btn-primary btn-lg'
+ul#chat_list
+    - @messages.each do |m|
+        li #{m.content} by #{m.name}
+
+#message_box
+    = form_for @message, :url => chat_room_send_message_path, :remote => true do |f|
+        = f.text_field :name
+        = f.text_field :content
+        = f.hidden_field :room_id, :value => @room_num
+
+        .action style="text-align: right;" = f.submit '送信する', :class => 'btn btn-primary btn-lg'

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'chat_room/index'
-  get 'chat_room/send_message'
+  post 'chat_room/send_message'
 
   resources :messages
   resources :rooms
