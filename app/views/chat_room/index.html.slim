@@ -1,0 +1,10 @@
+h1
+  | ChatRoom#index
+p
+  | Find me in app/views/chat_room/index.html.erb
+
+= form_for @message, :url => chat_room_send_message_path, :remote => true do |f|
+    = f.text_field :name
+    = f.text_field :content
+
+    .action style="text-align: right;" = f.submit '送信する', :class => 'btn btn-primary btn-lg'
