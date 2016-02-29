@@ -2,37 +2,37 @@ p#notice
   = notice
 h1
   | Listing Rooms
+body
+  div
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-header
 
-navbar.navbar-inverse.navbar-fixed-top
-  div.navbar-header
-    button.drawer data-toggle="collapse" data-target=".target"
-     span.icon-bar
-     span.icon-bar
-     span.icon-bar
-  a.navbar-brand href="#" Listing Rooms
+      a.navbar-brand.hvr-skew href="#" Listing Rooms
+  
 
-table
-  thead
-    tr
-      th
-        | Name
-      th
-        | Author
-      th[colspan="3"]
-  tbody
-    - @rooms.each do |room|
+
+  table
+    thead
       tr
-        td.allRooms
-          = link_to "#{room.name}", chat_room_index_path(room, room_id: room.id)
-        td
-          = room.author
-        td
-          = link_to 'Show', room
-        td
-          = link_to 'Edit', edit_room_path(room)
-        td
-          = link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' }
+        th
+          | Name
+        th
+          | Author
+        th[colspan="3"]
+    tbody
+      - @rooms.each do |room|
+        tr
+          td.allRooms
+            = link_to "#{room.name}", chat_room_index_path(room, room_id: room.id)
+          td.allRooms
+            = room.author
+          td
+            = link_to 'Show', room
+          td
+            = link_to 'Edit', edit_room_path(room)
+          td
+            = link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' }
 
-br
-= link_to 'New Room', new_room_path
+  br
+  = link_to 'New Room', new_room_path
 
