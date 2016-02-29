@@ -5,6 +5,11 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @res = {}
+    @rooms.each do |room|
+        message = Message.where(room_id: room.id)
+        @res[room.id] = message.length
+    end
   end
 
   # GET /rooms/1
