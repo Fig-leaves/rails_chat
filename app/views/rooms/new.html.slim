@@ -1,4 +1,19 @@
+p#notice
+  = notice
 h1
-  | New Room
-= render 'form'
-= link_to 'Back', rooms_path
+  | Listing Rooms
+body
+
+nav.navbar.navbar-inverse.navbar-fixed-top
+  div.navbar-header
+
+  a.navbar-brand.hvr-skew href="#" Listing Rooms
+
+
+
+canvas#canvas
+
+div.contentblock
+  	| New Room
+	= render 'form'
+	= link_to 'Back', rooms_path
